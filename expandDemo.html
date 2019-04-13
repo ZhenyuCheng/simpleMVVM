@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{h1}}</h1>
+        <h2>{{h2}}</h2>
+        <h3>
+            {{h3}}{{h4}}
+            <span style="color:red;">{{h5}}{{h6}}</span>
+        </h3>
+        <h1>{{obj}}</h1>
+        <h1>{{computedKey1}}</h1>
+        <h2>{{computedKey2}}</h2>
+        <input v-model="demo" type="text">
+    </div>
+    <script src="./expandDemo.js"></script>
+    <script>
+        let app = new expandDemo({
+            el: '#app',
+            data: {
+                h1: 'h1',
+                h2: 'h2',
+                h3: 'h3',
+                h4: 'h4',
+                h5: 'h5',
+                h6: 'h6',
+                demo: 'demo',
+                obj: {}
+            },
+            computed: {
+                computedKey1: {
+                    get() {
+                        return this.h1 + this.h2;
+                    }
+                },
+                computedKey2() {
+                    return this.h1 + this.h2;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
